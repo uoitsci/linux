@@ -1,0 +1,16 @@
+Source: vmware-view-client-config
+Section: uoit-config
+Priority: extra
+Maintainer: Science Administrator <software@science.uoit.ca>
+Build-Depends: debhelper (>= 7.0.0~), config-package-dev (>= 4.15~)
+Standards-Version: 3.9.2
+
+Package: vmware-view-client-config
+Architecture: all
+Depends: ${misc:Depends}
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}
+Enhances: vmware-view-client
+Description: Configures VMware View Client for UOIT's servers.
+ Installs a configuration file that instructs the VMware View
+ Client on how to connect to UOIT's servers.
