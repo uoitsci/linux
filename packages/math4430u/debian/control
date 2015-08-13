@@ -1,0 +1,13 @@
+Source: math4430u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: math4430u
+Architecture: any
+Depends: uoit-laptop-fsci-math,
+ ${misc:Depends}
+Description: Course package for math4430u
+ Course metapackage for math4430u (part of uoit-laptop-fsci-math).

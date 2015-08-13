@@ -1,0 +1,13 @@
+Source: chem3520u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: chem3520u
+Architecture: any
+Depends: uoit-laptop-fsci-chem,
+ ${misc:Depends}
+Description: Course package for chem3520u
+ Course metapackage for chem3520u (part of uoit-laptop-fsci-chem).

@@ -1,0 +1,13 @@
+Source: biol4420u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: biol4420u
+Architecture: any
+Depends: uoit-laptop-fsci-biol,
+ ${misc:Depends}
+Description: Course package for biol4420u
+ Course metapackage for biol4420u (part of uoit-laptop-fsci-biol).

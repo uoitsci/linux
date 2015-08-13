@@ -1,0 +1,13 @@
+Source: csci4430u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: csci4430u
+Architecture: any
+Depends: uoit-laptop-fsci-csci,
+ ${misc:Depends}
+Description: Course package for csci4430u
+ Course metapackage for csci4430u (part of uoit-laptop-fsci-csci).

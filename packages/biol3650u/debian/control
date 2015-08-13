@@ -1,0 +1,13 @@
+Source: biol3650u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: biol3650u
+Architecture: any
+Depends: uoit-laptop-fsci-biol,
+ ${misc:Depends}
+Description: Course package for biol3650u
+ Course metapackage for biol3650u (part of uoit-laptop-fsci-biol).

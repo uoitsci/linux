@@ -1,0 +1,13 @@
+Source: chem4410u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: chem4410u
+Architecture: any
+Depends: uoit-laptop-fsci-chem,
+ ${misc:Depends}
+Description: Course package for chem4410u
+ Course metapackage for chem4410u (part of uoit-laptop-fsci-chem).

@@ -1,0 +1,13 @@
+Source: math2080u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: math2080u
+Architecture: any
+Depends: uoit-laptop-fsci-math,
+ ${misc:Depends}
+Description: Course package for math2080u
+ Course metapackage for math2080u (part of uoit-laptop-fsci-math).

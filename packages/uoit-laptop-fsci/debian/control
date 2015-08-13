@@ -15,7 +15,6 @@ Depends: texlive-full,
  git,
  shutter,
  inkscape,
- ${shlibs:Depends},
  ${misc:Depends}
 Description: UOIT laptop configuration
  This metapackage configures a UOIT laptop.

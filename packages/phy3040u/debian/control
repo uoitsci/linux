@@ -1,0 +1,13 @@
+Source: phy3040u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: phy3040u
+Architecture: any
+Depends: uoit-laptop-fsci-phy,
+ ${misc:Depends}
+Description: Course package for phy3040u
+ Course metapackage for phy3040u (part of uoit-laptop-fsci-phy).

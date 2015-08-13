@@ -1,0 +1,13 @@
+Source: fsci3120u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: fsci3120u
+Architecture: any
+Depends: uoit-laptop-fsci-fsci,
+ ${misc:Depends}
+Description: Course package for fsci3120u
+ Course metapackage for fsci3120u (part of uoit-laptop-fsci-fsci).

@@ -1,0 +1,13 @@
+Source: csci1040u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: csci1040u
+Architecture: any
+Depends: uoit-laptop-fsci-csci,
+ ${misc:Depends}
+Description: Course package for csci1040u
+ Course metapackage for csci1040u (part of uoit-laptop-fsci-csci).

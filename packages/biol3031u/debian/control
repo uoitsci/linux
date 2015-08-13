@@ -1,0 +1,13 @@
+Source: biol3031u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: biol3031u
+Architecture: any
+Depends: uoit-laptop-fsci-biol,
+ ${misc:Depends}
+Description: Course package for biol3031u
+ Course metapackage for biol3031u (part of uoit-laptop-fsci-biol).

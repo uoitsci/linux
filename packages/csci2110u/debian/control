@@ -1,0 +1,13 @@
+Source: csci2110u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: csci2110u
+Architecture: any
+Depends: uoit-laptop-fsci-csci,
+ ${misc:Depends}
+Description: Course package for csci2110u
+ Course metapackage for csci2110u (part of uoit-laptop-fsci-csci).

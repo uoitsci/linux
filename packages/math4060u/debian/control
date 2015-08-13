@@ -1,0 +1,13 @@
+Source: math4060u
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: math4060u
+Architecture: any
+Depends: uoit-laptop-fsci-math,
+ ${misc:Depends}
+Description: Course package for math4060u
+ Course metapackage for math4060u (part of uoit-laptop-fsci-math).
