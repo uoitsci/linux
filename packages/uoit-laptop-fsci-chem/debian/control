@@ -1,0 +1,13 @@
+Source: uoit-laptop-fsci-chem
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: uoit-laptop-fsci-chem
+Architecture: any
+Depends: uoit-laptop-fsci,
+ ${misc:Depends}
+Description: Common packages for CHEM courses
+ This metapackage installs packages common to most CHEM courses.

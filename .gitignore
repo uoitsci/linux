@@ -58,3 +58,4 @@ Temporary Items
 #  $ [sudo] git config --system core.ignorecase false
 DEBIAN/
 debian/files
+debian/uoit-laptop-fsci-biol/usr/
