@@ -9,7 +9,6 @@ Package: uoit-laptop
 Architecture: any
 Depends: vlc,
  libreoffice,
- ${shlibs:Depends},
  ${misc:Depends}
 Description: UOIT laptop configuration
  This metapackage configures a UOIT laptop.

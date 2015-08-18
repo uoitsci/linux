@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-export DEBUILD="/usr/bin/debuild"
-export DFLAGS="-us -uc"
-
 ####################################################################
 # Displays a brief summary and usage information to the user
 ####################################################################
@@ -54,7 +51,7 @@ build() {
   find . -name .DS_Store -delete
   
   for pkg in $(ls */debian/control | cut -d'/' -f1); do
-    cd $pkg && debuild -us -uc && cd ..
+    cd $pkg && /usr/bin/debuild -k0xEF4C1D02 && cd ..
   done
 }
 

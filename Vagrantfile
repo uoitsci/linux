@@ -41,6 +41,8 @@ Vagrant.configure(2) do |config|
   
   config.vm.synced_folder ".", "/vagrant", owner: "science", group: "science"
 
+  config.ssh.username = "science"
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -71,17 +73,37 @@ Vagrant.configure(2) do |config|
 
     sudo apt-get update > /dev/null
     sudo apt-get dist-upgrade -y > /dev/null
-    sudo apt-get install -y devscripts config-package-dev debhelper > /dev/null
+    sudo apt-get install -y devscripts config-package-dev debhelper gnupg-agent pinentry-curses > /dev/null
     sudo apt-get autoremove -y > /dev/null
 
     # Create a user if it doesn't already exist.
     if [ $(id -u science &>/dev/null) ]
     then
       echo "User does not exist, creating."
-      useradd -m -c "Science Administrator" science
-      cat <<EOF >> /home/science/.bashrc
-DEBFULLNAME="Science Software"
-DEBEMAIL="software@science.uoit.ca"
+      sudo useradd -m -c "Science Administrator" -s /bin/bash science
+
+      cat <<EOF > /home/science/.bashrc
+export DEBFULLNAME="Science Software"
+export DEBEMAIL="software@science.uoit.ca"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export GPGKEY=EF4C1D02
+
+eval $(gpg-agent --daemon)
+EOF
+
+      cat <<EOF > /home/science/.gnupg/gpg.conf
+default-key 621CC013
+keyserver hkp://keys.gnupg.net
+keyserver-options auto-key-retrieve
+use-agent
+EOF
+
+      cat <<EOF > /home/science/.gnupg/gpg-agent.conf
+pinentry-program /usr/bin/pinentry-curses
+no-grab
+default-cache-ttl 1800
 EOF
     else
       echo "User already exists, ignoring."

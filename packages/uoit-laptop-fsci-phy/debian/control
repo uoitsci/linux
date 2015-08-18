@@ -7,7 +7,8 @@ Build-Depends: debhelper (>= 9)
 
 Package: uoit-laptop-fsci-phy
 Architecture: any
-Depends: r-cran-rcmdr,
+Depends: uoit-laptop-fsci,
+ r-cran-rcmdr,
  imagej,
  ${misc:Depends}
 Description: Common packages for PHY courses
