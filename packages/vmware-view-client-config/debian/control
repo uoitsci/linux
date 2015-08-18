@@ -1,9 +1,9 @@
 Source: vmware-view-client-config
-Section: uoit-config
+Section: misc
 Priority: extra
 Maintainer: Science Administrator <software@science.uoit.ca>
 Build-Depends: debhelper (>= 7.0.0~), config-package-dev (>= 4.15~)
-Standards-Version: 3.9.2
+Standards-Version: 3.9.5
 
 Package: vmware-view-client-config
 Architecture: all
