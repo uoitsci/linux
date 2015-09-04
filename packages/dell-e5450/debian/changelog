@@ -1,0 +1,17 @@
+dell-e5450 (1.0.2) trusty; urgency=critical
+
+  * Fixed postinst script to actually make modifications rather than showing them.
+
+ -- Science Software <software@science.uoit.ca>  Fri, 04 Sep 2015 20:04:27 +0000
+
+dell-e5450 (1.0.1) trusty; urgency=critical
+
+  * Added postinst script to fix GRUB2 boot issues.
+
+ -- Science Software <software@science.uoit.ca>  Fri, 04 Sep 2015 19:49:44 +0000
+
+dell-e5450 (1.0) trusty; urgency=medium
+
+  * Initial release.
+
+ -- Science Software <software@science.uoit.ca>  Fri, 04 Sep 2015 19:49:16 +0000

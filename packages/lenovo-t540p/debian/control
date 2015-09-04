@@ -1,0 +1,13 @@
+Source: lenovo-t540p
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: lenovo-t540p
+Architecture: any
+Depends: ${misc:Depends}
+Description: Lenovo Thinkpad T540p
+ This metapackage contains model-specific tweaks and workarounds for
+ the Lenovo T540p.
