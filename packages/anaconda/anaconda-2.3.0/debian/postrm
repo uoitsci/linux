@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+  purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    # Recreate the /opt directory since this package removes it if nothing
+    # else is installed.
+    if [ ! -e /opt ]; then
+        if mkdir /opt 2>/dev/null; then
+            chown root:root /opt
+            chmod 755 /opt
+        fi
+    fi
+    
+    # Remove /opt/anaconda/bin from the system PATH
+    if grep -q "/opt/anaconda/bin" /etc/environment 2>/dev/null; then
+      sed -i 's/\:\/opt\/anaconda\/bin//g' /etc/environment
+    fi
+;;
+
+*)
+    echo "postrm called with unknown argument \`$1'" >&2
+    exit 1
+;;
+esac
+
+#DEBHELPER#
+
+exit 0

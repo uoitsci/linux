@@ -51,13 +51,27 @@ build() {
   find . -name .DS_Store -delete
   
   for pkg in $(ls */debian/control | cut -d'/' -f1); do
-    cd $pkg && /usr/bin/debuild -k0xEF4C1D02 && cd ..
+    # Handle Anaconda differently.
+    if [ "${pkg}" == "anaconda" ]; then
+      # Copy the anaconda installation files to the build directory.
+      # The files are hard links, so not specifying -H will
+      # essentially double the file size.
+      #
+      # TODO:  Find a way to make this work without hardcoding the
+      #        version number.
+      rsync -ap -H /opt/anaconda anaconda-2.3.0/
+
+      # Build a binary-only package.
+      cd "${pkg}" && /usr/bin/debuild -b -k0xEF4C1D02 && cd ..
+    fi
+
+    cd "${pkg}" && /usr/bin/debuild -k0xEF4C1D02 && cd ..
   done
 }
 
 main() {
   while getopts "h?c" opt; do
-    case "$opt" in
+    case "${opt}" in
       h|\?)
         show_help
         exit 0

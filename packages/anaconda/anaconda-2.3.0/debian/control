@@ -1,0 +1,13 @@
+Source: anaconda
+Section: non-free/math
+Priority: optional
+Maintainer: Science Software <software@science.uoit.ca>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.5
+Homepage: http://continuum.io/
+
+Package: anaconda
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A scientific Python distribution.
+ Repackaging of Continuum Analytics' Anaconda scientific Python distribution.
