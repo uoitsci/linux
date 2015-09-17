@@ -10,11 +10,13 @@
 ####################################################################
 show_help() {
   cat <<-EOF
-build.sh [-h|-?] [-c] -- Builds all packages
+build.sh [-h|-?] [-c] <package> -- Builds packages
 
 Where:
-    -h|-? Displays this message
-    -c    Cleans all packages of intermediate build files
+    -h|-?     Displays this message
+    -c        Cleans all packages of intermediate build files
+    <package> The name of the package to build.  If this option is
+              omitted, all packages are built.
 EOF
 }
 
@@ -38,19 +40,18 @@ clean() {
 }
 
 ####################################################################
-# Builds all packages
+# Builds a specific package
 ####################################################################
 # Arguments:
-#   None
+#   Name of package to build
 # Returns:
 #   None
 ####################################################################
-build() {
-  # debuild complains about .DS_Store files, so we must ensure they
-  # are removed before building.
-  find . -name .DS_Store -delete
+build_package() {
+  echo "Building $1..."
+  pkg="$1"
   
-  for pkg in $(ls */debian/control | cut -d'/' -f1); do
+  if [ -d "${pkg}" ]; then
     # Handle Anaconda differently.
     if [ "${pkg}" == "anaconda" ]; then
       # Copy the anaconda installation files to the build directory.
@@ -59,13 +60,33 @@ build() {
       #
       # TODO:  Find a way to make this work without hardcoding the
       #        version number.
-      rsync -ap -H /opt/anaconda anaconda-2.3.0/
 
       # Build a binary-only package.
-      cd "${pkg}" && /usr/bin/debuild -b -k0xEF4C1D02 && cd ..
+      cd "${pkg}" && \
+        rsync -ap -H /opt/anaconda anaconda-2.3.0/ && \
+        /usr/bin/debuild -b -k0xEF4C1D02 && \
+        cd ..
+    else
+      cd "${pkg}" && /usr/bin/debuild -k0xEF4C1D02 && cd ..
     fi
+  fi
+}
 
-    cd "${pkg}" && /usr/bin/debuild -k0xEF4C1D02 && cd ..
+####################################################################
+# Builds all packages
+####################################################################
+# Arguments:
+#   None
+# Returns:
+#   None
+####################################################################
+build_all() {
+  # debuild complains about .DS_Store files, so we must ensure they
+  # are removed before building.
+  find . -name .DS_Store -delete
+
+  for pkg in $(ls */debian/control | cut -d'/' -f1); do
+    build_package "${pkg}"
   done
 }
 
@@ -84,8 +105,14 @@ main() {
     esac
   done
 
-  # If we've made it this far, build the packages.
-  build
+  # If we've made it this far, build the package(s).
+  if [ $# -eq 0 ]; then
+    # Build everything.
+    build_all
+  else
+    # Build the specified package.
+    build_package "$1"
+  fi
 }
 
 main "$@"

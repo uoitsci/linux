@@ -1,3 +1,9 @@
+csci2000u (1.0.1) trusty; urgency=medium
+
+  * Added dependency on anaconda package. 
+
+ -- Science Software <software@science.uoit.ca>  Mon, 14 Sep 2015 14:24:45 +0000
+
 csci2000u (1.0) trusty; urgency=medium
 
   * Initial release.

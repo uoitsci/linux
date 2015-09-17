@@ -10,6 +10,7 @@ Architecture: any
 Depends: uoit-laptop-fsci,
  r-cran-rcmdr,
  imagej,
+ anaconda,
  ${misc:Depends}
 Description: Common packages for PHY courses
  This metapackage installs packages common to most PHY courses.

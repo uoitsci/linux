@@ -1,3 +1,9 @@
+uoit-laptop-fsci-phy (1.0.1) trusty; urgency=medium
+
+  * Added dependency on anaconda package.
+
+ -- Science Software <software@science.uoit.ca>  Mon, 14 Sep 2015 14:14:44 +0000
+
 uoit-laptop-fsci-phy (1.0) trusty; urgency=medium
 
   * Initial release.

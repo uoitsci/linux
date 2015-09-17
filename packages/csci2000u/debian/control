@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 9)
 Package: csci2000u
 Architecture: any
 Depends: uoit-laptop-fsci-csci,
+ anaconda,
  ${misc:Depends}
 Description: Course package for csci2000u
  Course metapackage for csci2000u (part of uoit-laptop-fsci-csci).
