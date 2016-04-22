@@ -17,11 +17,6 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 sed -i 's/ca.archive.ubuntu.com/mirror.science.uoit.ca/g' \
   /etc/apt/sources.list
 
-# Enable the Canonical Partner repository.
-cat <<EOF > /etc/apt/sources.list.d/partner.list
-deb http://archive.canonical.com/ubuntu trusty partner
-EOF
-
 # Update package list and upgrade any packages.
 apt-get update
 apt-get dist-upgrade -y
