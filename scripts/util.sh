@@ -50,4 +50,11 @@ util::mkswap() {
   # There is no need to activate it at this time.
   echo -e "${swap_file}\t\tnone\t\tswap\tdefaults\t0\t0" >> \
     /etc/fstab
+
+  # Try to convince the kernel to swap less frequently to disk.  A
+  # swappiness value of '10' should cause the kernel to avoid swapping
+  # to disk until ~90% of physical memory is used.
+  if ! grep -q "vm.swappiness=10" /etc/sysctl.conf; then
+    echo "vm.swappiness=10" >> /etc/sysctl.conf
+  fi
 }

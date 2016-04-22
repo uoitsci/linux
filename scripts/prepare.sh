@@ -17,9 +17,6 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 sed -i 's/ca.archive.ubuntu.com/mirror.science.uoit.ca/g' \
   /etc/apt/sources.list
 
-# Dropped Salt for now.
-#add-apt-repository -y ppa:saltstack/salt
-
 # Enable the Canonical Partner repository.
 cat <<EOF > /etc/apt/sources.list.d/partner.list
 deb http://archive.canonical.com/ubuntu trusty partner
@@ -29,13 +26,17 @@ EOF
 apt-get update
 apt-get dist-upgrade -y
 
+# Install LibreOffice from the PPAs and some basic packages.
+apt-get install libreoffice uoit-laptop-fsci
+
 # Remove items that are no longer needed or would bloat the image.
+# The extra dist-upgrade and autoremove shouldn't be required, but
+# apt-get seems to hold back upgrades/cleanings if they aren't run
+# a couple of times.
+apt-get autoremove -y
+apt-get dist-upgrade -y
 apt-get autoremove -y
 apt-get clean -y
-
-# Dropped Salt for now.
-# Install the Salt minion.  We will configure the minion later.
-#apt-get install -y salt-minion
 
 # Switch back to the default mirror for Canada.
 sed -i 's/mirror.science.uoit.ca/ca.archive.ubuntu.com/g' \
@@ -83,30 +84,4 @@ update-grub &>/dev/null
 # Create a swap file.
 util::mkswap
 
-# Try to convince the kernel to swap less frequently to disk.  A
-# swappiness value of '10' should cause the kernel to avoid swapping
-# to disk until ~90% of physical memory is used.
-if ! grep -q "vm.swappiness=10" /etc/sysctl.conf; then
-  echo "vm.swappiness=10" >> /etc/sysctl.conf
-fi
-
-# Set the root password.  This will allow us to reset a student's
-# password should that be required.  This requires user interaction.
-passwd
-
 echo "Machine successfully configured!"
-
-# If the user wishes to perform additional configuration, exit so
-# oem-config-prepare is not run.  This may be run manually later,
-# or by re-running this script.
-dialog --title "Success!" --yesno \
-  "Would you like to perform additional configuration?" \
-  5 60 && exit 0
-
-# Otherwise we complete the configuration.
-
-# Prepare the machine for shipping.
-oem-config-prepare --quiet
-
-# The machine should be ready to ship to users.
-poweroff
