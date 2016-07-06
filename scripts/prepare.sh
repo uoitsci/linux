@@ -22,7 +22,7 @@ apt-get update
 apt-get dist-upgrade -y
 
 # Install LibreOffice from the PPAs and some basic packages.
-apt-get install libreoffice uoit-laptop-fsci
+apt-get install -y libreoffice uoit-laptop-fsci
 
 # Remove items that are no longer needed or would bloat the image.
 # The extra dist-upgrade and autoremove shouldn't be required, but
