@@ -63,7 +63,7 @@ build_package() {
 
       # Build a binary-only package.
       cd "${pkg}" && \
-        rsync -ap -H /opt/anaconda anaconda-2.3.0/ && \
+        rsync -ap -H /opt/anaconda anaconda-4.1.0/ && \
         /usr/bin/debuild -b -k0xEF4C1D02 && \
         cd ..
     else

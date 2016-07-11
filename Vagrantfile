@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
   
   config.vm.synced_folder ".", "/vagrant", owner: "science", group: "science"
 
-  config.ssh.username = "science"
+  #config.ssh.username = "science"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -71,6 +71,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sed -i 's/archive.ubuntu.com/mirror.science.uoit.ca/g' /etc/apt/sources.list
 
+    sudo locale-gen en_CA.UTF-8
+
     sudo apt-get update > /dev/null
     sudo apt-get dist-upgrade -y > /dev/null
     sudo apt-get install -y devscripts config-package-dev debhelper gnupg-agent pinentry-curses > /dev/null
@@ -90,14 +92,19 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export GPGKEY=EF4C1D02
 
-eval $(gpg-agent --daemon)
+eval \$(gpg-agent --daemon)
 EOF
+      
+      mkdir -p /home/science/.gnupg
 
       cat <<EOF > /home/science/.gnupg/gpg.conf
 default-key 621CC013
 keyserver hkp://keys.gnupg.net
 keyserver-options auto-key-retrieve
 use-agent
+personal-digest-preferences SHA512
+cert-digest-algo SHA512
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
 EOF
 
       cat <<EOF > /home/science/.gnupg/gpg-agent.conf
@@ -105,6 +112,8 @@ pinentry-program /usr/bin/pinentry-curses
 no-grab
 default-cache-ttl 1800
 EOF
+      
+      chown -R science:science /home/science/.gnupg
     else
       echo "User already exists, ignoring."
     fi

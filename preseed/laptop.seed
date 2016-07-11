@@ -217,7 +217,7 @@ d-i preseed/early_command string modprobe -r usb_storage
 # packages and run commands in the target system.
 #d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
 
-d-i preseed/late_command string \
-	in-target git clone https://github.com/uoitsci/linux /tmp/linux \
-	in-target chmod +x /tmp/linux/scripts/prepare.sh \
-	in-target cd /tmp/linux/scripts && ./prepare.sh;
+#d-i preseed/late_command string \
+#	in-target git clone https://github.com/uoitsci/linux /tmp/linux \
+#	in-target chmod +x /tmp/linux/scripts/prepare.sh \
+#	in-target cd /tmp/linux/scripts && ./prepare.sh;

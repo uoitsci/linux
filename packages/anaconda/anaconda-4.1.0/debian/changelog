@@ -1,0 +1,11 @@
+anaconda (4.1.0) xenial; urgency=medium
+
+  * Updated to Anaconda 4.1.0.
+
+ -- Science Software <software@science.uoit.ca>  Fri, 08 Jul 2016 13:59:24 +0000
+
+anaconda (2.3.0) trusty; urgency=low
+
+  * Initial Release.
+
+ -- Science Software <software@science.uoit.ca>  Tue, 08 Sep 2015 22:49:30 +0000

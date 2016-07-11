@@ -1,0 +1,13 @@
+Source: dell-e5470
+Maintainer: Science Software <software@science.uoit.ca>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+
+Package: dell-e5470
+Architecture: any
+Depends: ${misc:Depends}
+Description: Dell Latitude E5470
+ This metapackage contains model-specific tweaks and workarounds for
+ the Dell Latitude E5470.
