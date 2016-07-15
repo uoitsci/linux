@@ -127,7 +127,7 @@ tasksel tasksel/first multiselect xubuntu-desktop
 # TODO #  Add back in after everything is confirmed working.
 ########
 
-d-i pkgsel/include string oem-config-gtk git
+d-i pkgsel/include string oem-config-gtk git uoit-laptop-fsci
 
 # Whether to upgrade packages after debootstrap.
 # Allowed values: none, safe-upgrade, full-upgrade
@@ -191,8 +191,6 @@ xserver-xorg xserver-xorg/config/monitor/mode-list \
 #   debconf-get-selections --installer > file
 #   debconf-get-selections >> file
 
-oem-config oem-config/steps multiselect user
-
 #### Advanced options
 ### Running custom commands during the installation
 # d-i preseeding is inherently not secure. Nothing in the installer checks
@@ -217,7 +215,16 @@ d-i preseed/early_command string modprobe -r usb_storage
 # packages and run commands in the target system.
 #d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
 
-#d-i preseed/late_command string \
-#	in-target git clone https://github.com/uoitsci/linux /tmp/linux \
-#	in-target chmod +x /tmp/linux/scripts/prepare.sh \
-#	in-target cd /tmp/linux/scripts && ./prepare.sh;
+d-i preseed/late_command string \
+	in-target git clone https://github.com/uoitsci/linux /tmp/linux; \
+	in-target chmod +x /tmp/linux/scripts/prepare.sh; \
+	in-target /bin/bash -c "cd /tmp/linux/scripts && ./prepare.sh";
+
+# OEM configuration
+d-i keyboard-configuration/layoutcode string us
+
+# Set the timezone to "America/Toronto."
+ubiquity time/zone string America/Toronto
+
+# Ask oem-config to only prompt users to create an account.
+oem-config oem-config/steps multiselect user
