@@ -2,7 +2,7 @@ Source: uoit-laptop-fsci
 Maintainer: Science Software <software@science.uoit.ca>
 Section: misc
 Priority: optional
-Standards-Version: 3.9.5
+Standards-Version: 3.9.7
 Build-Depends: debhelper (>= 9)
 
 Package: uoit-laptop-fsci
@@ -16,6 +16,9 @@ Depends: uoit-laptop,
  git,
  shutter,
  inkscape,
+ vim-gtk3,
  ${misc:Depends}
-Description: UOIT laptop configuration
- This metapackage configures a UOIT laptop.
+Recommends: matlab-full,
+ maple
+Description: Science UOIT laptop configuration
+ This metapackage configures a UOIT laptop for use by Science students.

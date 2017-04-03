@@ -1,0 +1,15 @@
+Source: maple
+Section: non-free/math
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Maintainer: Science Software <software@science.uoit.ca>
+
+Package: maple
+Section: non-free/math
+Priority: optional
+Architecture: amd64
+Package-Type: deb
+Homepage: http://maplesoft.com/
+Depends: debconf, libjpeg62 (>= 1:6b2-2), gstreamer0.10-plugins-good (>= 0.10.31)
+Description: Full Maple 2016 installation.
+ Requires license file after installing.

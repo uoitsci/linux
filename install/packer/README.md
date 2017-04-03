@@ -1,0 +1,9 @@
+Based on the templates and preseed files from [chef/bento](https://github.com/chef/bento/).
+
+    Chef Bento Copyright 2012-2015, Chef Software, Inc.
+    
+    The baseboxes in the "definitions" directory is from Tim Dysinger's "basebox" project.
+    
+    https://github.com/dysinger/basebox
+    
+    Author: Tim Dysinger (tim@dysinger.net) Copyright 2011-2012, Tim Dysinger (tim@dysinger.net)

@@ -53,8 +53,12 @@ Temporary Items
 *.dsc
 *.deb
 *changelog.gz
+*.tar.xz
+*.sh
 # On OS X (and likely Windows) this requires the following.
 #  $ [sudo] git config --unset-all core.ignorecase
 #  $ [sudo] git config --system core.ignorecase false
-DEBIAN/
-debian/files
+debhelper-build-stamp
+**/DEBIAN/
+**/debian/files
+**/debian/maple

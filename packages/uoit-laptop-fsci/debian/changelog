@@ -1,3 +1,27 @@
+uoit-laptop-fsci (1.0ubuntu4) xenial; urgency=medium
+
+  * Moved MATLAB and Maple from required to recommended dependencies.  This way they don't need to be installed which will result in smaller VMs.
+
+ -- Science Software <software@science.uoit.ca>  Wed, 11 Jan 2017 12:58:51 +0000
+
+uoit-laptop-fsci (1.0ubuntu3) xenial; urgency=medium
+
+  * Added MATLAB and Maple dependencies.
+
+ -- Science Software <software@science.uoit.ca>  Wed, 27 Jul 2016 00:32:49 +0000
+
+uoit-laptop-fsci (1.0ubuntu2) xenial; urgency=medium
+
+  * Update for Xenial.
+
+ -- Science Software <software@science.uoit.ca>  Tue, 26 Jul 2016 15:40:58 +0000
+
+uoit-laptop-fsci (1.0ubuntu1) xenial; urgency=medium
+
+  * Updated dependencies.
+
+ -- Science Software <software@science.uoit.ca>  Mon, 25 Jul 2016 18:20:44 +0000
+
 uoit-laptop-fsci (1.0) trusty; urgency=medium
 
   * Initial release.

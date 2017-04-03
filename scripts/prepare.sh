@@ -41,6 +41,15 @@ apt-get update
 # We must change the default entry to Windows.
 sed -i 's/GRUB_DEFAULT=.*/GRUB_DEFAULT="Windows 8 (loader) (on \/dev\/sda1)"/' /etc/default/grub
 
+# Change the GRUB timeout parameter to work around bug
+# uoitsci/linux#1.
+sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /etc/default/grub
+
+# Both models of laptop are 1366x768, so change GFXMODE to match.
+# I believe this is also done by the model-specific configuration
+# files.
+sed -i 's/#GRUB_GFXMODE=.*/GRUB_GFXMODE="1366x768x32"/' /etc/default/grub
+
 # After modifying any GRUB configuration files, GRUB must be updated.
 update-grub &>/dev/null
 

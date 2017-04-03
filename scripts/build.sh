@@ -37,6 +37,7 @@ clean() {
   rm -f $(pwd)/*.deb
   rm -f $(pwd)/*.dsc
   rm -f $(pwd)/*.tar.gz
+  rm -f $(pwd)/*.tar.xz
 }
 
 ####################################################################
@@ -66,6 +67,12 @@ build_package() {
         rsync -ap -H /opt/anaconda anaconda-4.1.0/ && \
         /usr/bin/debuild -b -k0xEF4C1D02 && \
         cd ..
+    elif [ "${pkg}" == "maple" ]; then
+      # Do nothing.
+      echo "Skipping Maple"
+    elif [ "${pkg}" == "matlab-full" ]; then
+      # Do nothing.
+      echo "Skipping MATLAB"
     else
       cd "${pkg}" && /usr/bin/debuild -k0xEF4C1D02 && cd ..
     fi

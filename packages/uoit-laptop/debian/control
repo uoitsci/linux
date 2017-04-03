@@ -2,13 +2,19 @@ Source: uoit-laptop
 Maintainer: Science Software <software@science.uoit.ca>
 Section: misc
 Priority: optional
-Standards-Version: 3.9.5
+Standards-Version: 3.9.7
 Build-Depends: debhelper (>= 9)
 
 Package: uoit-laptop
 Architecture: any
 Depends: vlc,
+ google-chrome-stable,
+ ubuntu-standard,
+ xubuntu-desktop,
+ exfat-utils,
  libreoffice,
+ uoit-apt-config,
+ adobe-flashplugin,
  ${misc:Depends}
 Description: UOIT laptop configuration
  This metapackage configures a UOIT laptop.

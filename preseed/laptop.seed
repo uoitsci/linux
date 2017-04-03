@@ -112,10 +112,22 @@ d-i apt-setup/local1/key string http://keyserver.ubuntu.com:11371/pks/lookup?op=
 d-i apt-setup/local2/repository string http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
 d-i apt-setup/local2/comment string webupd8 Team Java Software Repository
 d-i apt-setup/local2/key string http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xEEA14886
+
+d-i apt-setup/local3/repository string http://www.openprinting.org/download/printdriver/debian lsb3.2 main
+d-i apt-setup/local3/comment string OpenPrinting Print Driver Repository
+d-i apt-setup/local3/key string http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x24CBF5474CFD1E2F
+
+d-i apt-setup/local4/repository string [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+d-i apt-setup/local4/comment string Google Chrome Repository
+d-i apt-setup/local4/key string http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x7721F63BD38B4796
+
 # By default the installer requires that repositories be authenticated
 # using a known gpg key. This setting can be used to disable that
 # authentication. Warning: Insecure, not recommended.
-#d-i debian-installer/allow_unauthenticated boolean true
+
+# Enabled until the OpenPrinting repository is fixed an no longer
+# uses SHA1 as a hash.
+d-i debian-installer/allow_unauthenticated boolean true
 
 ### Package selection
 

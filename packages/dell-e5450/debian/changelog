@@ -1,3 +1,9 @@
+dell-e5450 (1.0.2ubuntu1) xenial; urgency=medium
+
+  * Update for Xenial.
+
+ -- Science Software <software@science.uoit.ca>  Tue, 26 Jul 2016 15:40:49 +0000
+
 dell-e5450 (1.0.2) trusty; urgency=critical
 
   * Fixed postinst script to actually make modifications rather than showing them.

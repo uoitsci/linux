@@ -1,0 +1,21 @@
+#!/bin/sh
+ 
+set -e
+ 
+case "$1" in
+  purge|disappear)
+    # If we're purging, remove the license file.
+    rm -f /opt/Maplesoft/maple2016/license/license.dat
+  ;;
+  remove|upgrade|failed-upgrade|abort-install|abort-upgrade)
+    # Do nothing...
+  ;;
+  *)
+    echo "postrm called with unknown argument \`$1'" >&2
+    exit 1
+  ;;
+esac
+ 
+#DEBHELPER#
+ 
+exit 0

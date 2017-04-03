@@ -40,8 +40,9 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   
   config.vm.synced_folder ".", "/vagrant", owner: "science", group: "science"
+  #config.vm.synced_folder ".", "/vagrant", owner: "ubuntu", group: "ubuntu"
 
-  #config.ssh.username = "science"
+  config.ssh.username = "science"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -75,7 +76,7 @@ Vagrant.configure(2) do |config|
 
     sudo apt-get update > /dev/null
     sudo apt-get dist-upgrade -y > /dev/null
-    sudo apt-get install -y devscripts config-package-dev debhelper gnupg-agent pinentry-curses > /dev/null
+    sudo apt-get install -y devscripts config-package-dev debhelper gnupg-agent pinentry-curses gnupg2 > /dev/null
     sudo apt-get autoremove -y > /dev/null
 
     # Create a user if it doesn't already exist.
